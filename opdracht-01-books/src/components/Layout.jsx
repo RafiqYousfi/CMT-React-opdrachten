@@ -1,6 +1,8 @@
-const Layout = () => {
+const Layout  = ({children}) => {
     return ( 
-        <section></section>
+        <section className="Layout">
+            {children}
+        </section>
      );
 }
  

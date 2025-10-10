@@ -1,15 +1,17 @@
-import './App.css'
-import BookList from './components/BookList'
-import Header from './components/Header';
+import "./App.css";
+import BookList from "./components/BookList";
+import Header from "./components/Header";
+import Layout from "./components/Layout";
 
 function App() {
-
   return (
     <>
-    <Header />
-<BookList/>
+      <Layout>
+        <Header />
+        <BookList />
+      </Layout>
     </>
-  )
+  );
 }
 
 export default App;
