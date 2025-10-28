@@ -1,7 +1,8 @@
-import menu from "./Menu";
+import Menu from "./Menu";
 import { useState } from "react";
+import data from '../data.js'
 const Menulist = () => {
-const [gerechten, setGerechten] = useState(menu);
+const [gerechten, setGerechten] = useState(data);
  
     return (
         <section className="menu-container">
