@@ -17,7 +17,7 @@ function WelcomeMessage() {
     }
 
     setMessage(newMessage); 
-  }, []);
+  }, []); 
 
   return (
     <div>
