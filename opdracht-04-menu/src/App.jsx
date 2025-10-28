@@ -5,7 +5,7 @@ function App() {
  
   return (
     <>
-      <h1>Opdracht 4 - Menu</h1>
+      <h1>Our Menu</h1>
        <Menulist />
     </>
   )
