@@ -1,28 +1,32 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import animals from '../animals.js';
-import Animal from '../components/Animal.jsx';
+import Card from '../components/card.jsx';
 
+ 
 const Home = () => {
   const navigate = useNavigate();
   const [animalList, setAnimalList] = useState(animals);
-
-  const goToDetail = (AnimalId) => {
-    navigate(`/animal/${AnimalId}`);
+ 
+  const goToDetail = (animalId) => {
+    navigate(`/animals/${animalId}`);
   };
-
+ 
   return (
     <section>
-      
+    
+      <h1>Welkom bij mijn website</h1>
+      <h2>Onze Dieren</h2>
+     
       {animalList.map(animal => (
-        <Animal
+        <Card
           key={animal.id}
-          animal={animal}
+          animals={animal}
           onShowDetail={goToDetail}
         />
       ))}
     </section>
   );
 };
-
+ 
 export default Home;

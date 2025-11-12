@@ -43,7 +43,7 @@ const animals = [
     id: 6,
     name: 'Leeuw',
     habitat: 'Savanne',
-    imageUrl: '/images/leeuw.jpg', 
+    imageUrl: '/images/leeuw.jpg',
     diet: 'carnivoor',
     description: 'De leeuw is een groot, sociaal zoogdier en staat bekend als de koning van de jungle.',
   },
@@ -72,5 +72,5 @@ const animals = [
     description: 'Elanden zijn de grootste herten, met grote, brede schoffels en zijn bekend om hun rustieke, majestueuze uitstraling.',
   },
 ];
-
+ 
 export default animals;
