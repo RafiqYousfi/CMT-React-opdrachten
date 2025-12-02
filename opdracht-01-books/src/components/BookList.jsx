@@ -1,38 +1,45 @@
 import Book from "./Book";
+import booksData from "../data.js";
 import { useState } from "react";
 import Bookcounter from "./BookCounter";
 
 const BookList = ({}) => {
-  const [books, setBooks] = useState([
-    {
-      title: "het leven van een loser",
-      author: "rafiq",
-      image: "./images/book-1.png",
-    },
-    {
-      title: "102 verdiepingen",
-      author: "pieter",
-      image: "./images/book-2.png",
-    },
-    {
-      title: "10000 luchtballonen",
-      author: "K3",
-      image: "./images/book-3.png",
-    },
-    
-  ]);
+  const [books, setBooks] = useState(booksData);
+  const [searchInput, setSearchInput] = useState("");
+
+  const searchHandler = (e) => {
+    let newSearch = e.target.value;
+    setSearchInput(newSearch);
+
+
+  
+
+  const filteredBooks = booksData.filter((book) => 
+    book.title.toLowerCase().includes(newSearch.toLowerCase())
+  )
+
+  setBooks(filteredBooks)
+  };
 
   return (
-    <section className="container">
-     <Bookcounter aantal={books.length}/>
-      {books.map((book) => (
-        <Book
-          title={book.title}
-          author={book.author}
-          image={book.image}
+    <>
+      <div className="search">
+        <input
+          type="text"
+          placeholder="zoek hier uw boek"
+          name="search"
+          onChange={searchHandler}
+          value={searchInput}
         />
-      ))}
-    </section>
+      </div>
+
+      <section className="container">
+        <Bookcounter aantal={books.length} />
+        {books.map((book) => (
+          <Book title={book.title} author={book.author} image={book.image} />
+        ))}
+      </section>
+    </>
   );
 };
 
