@@ -1,12 +1,15 @@
 import './App.css'
+import CreateMessage from './components/CreateMessage'; 
+import Message from './components/Message';
 
 function App() {
 
   return (
     <>
-      <h1>Opdracht 7 - Twitter</h1>
+      <CreateMessage/>
+      <Message/>
     </>
-  )
+  );
 }
 
 export default App
