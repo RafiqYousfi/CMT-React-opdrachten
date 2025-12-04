@@ -1,13 +1,14 @@
 import './App.css'
 import CreateMessage from './components/CreateMessage'; 
 import Message from './components/Message';
+import MessageList from './components/MessageList';
 
 function App() {
 
   return (
     <>
       <CreateMessage/>
-      <Message/>
+      <MessageList/>
     </>
   );
 }
