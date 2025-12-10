@@ -80,3 +80,5 @@ const data = [
       answer: 'Lissabon',
     },
   ];
+
+  export default data

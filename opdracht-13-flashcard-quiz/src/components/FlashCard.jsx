@@ -1,8 +1,14 @@
+import { useState } from "react";
+
 export default function FlashCard({ question, answer }) {
-    return (
-      <div>
-        {/* Hier komt zo de voorkant of achterkant */}
-        {question}
-      </div>
-    );
-  }
+  const [flipped, setFlipped] = useState(true);
+
+  const flippHandler = () => {
+    setFlipped(!flipped);
+  };
+  return (
+    <section onClick={flippHandler}>
+      {flipped ? <h2>{question}</h2> : <h2>{answer}</h2>}
+    </section>
+  );
+}
