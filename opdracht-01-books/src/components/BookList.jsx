@@ -3,22 +3,43 @@ import booksData from "../data.js";
 import { useState } from "react";
 import Bookcounter from "./BookCounter";
 
-const BookList = ({}) => {
+const BookList = () => {
   const [books, setBooks] = useState(booksData);
   const [searchInput, setSearchInput] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("Alle");
+
+  const categories = [
+    "Alle",
+    "Fantasy",
+    "Avontuur",
+    "Sciencefiction",
+    "Thriller",
+    "Romance",
+  ];
 
   const searchHandler = (e) => {
     let newSearch = e.target.value;
     setSearchInput(newSearch);
 
+    const filteredBooks = booksData.filter((book) =>
+      book.title.toLowerCase().includes(newSearch.toLowerCase())
+    );
 
-  
+    setBooks(filteredBooks);
+  };
 
-  const filteredBooks = booksData.filter((book) => 
-    book.title.toLowerCase().includes(newSearch.toLowerCase())
-  )
+  const filterHandler = (e) => {
+    const category = e.target.value;
+    setSelectedCategory(category);
 
-  setBooks(filteredBooks)
+    if (category === "Alle") {
+      setBooks(booksData);
+    } else {
+      const filteredBooks = booksData.filter(
+        (book) => book.category === category
+      );
+      setBooks(filteredBooks);
+    }
   };
 
   return (
@@ -33,10 +54,32 @@ const BookList = ({}) => {
         />
       </div>
 
+      <div className="filter">
+        <label htmlFor="category">Filter op categorie: </label>
+        <select
+          id="category"
+          value={selectedCategory}
+          onChange={filterHandler}
+        >
+          {categories.map((category, index) => (
+            <option key={index} value={category}>
+              {category}
+            </option>
+          ))}
+        </select>
+      </div>
+
       <section className="container">
         <Bookcounter aantal={books.length} />
-        {books.map((book) => (
-          <Book title={book.title} author={book.author} image={book.image} />
+
+        {books.map((book, index) => (
+          <Book
+            key={index}
+            title={book.title}
+            author={book.author}
+            image={book.image}
+            category={book.category}
+          />
         ))}
       </section>
     </>
