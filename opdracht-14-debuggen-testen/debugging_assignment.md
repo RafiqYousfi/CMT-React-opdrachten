@@ -15,7 +15,7 @@ Je krijgt een React movie applicatie die niet goed werkt. Er zitten bugs in de c
 - Dubbele films voorkomen
 - Lege lijst melding tonen
 
-## 🔧 Stappen
+## 🔧 Stappen 
 
 ### **Stap 1: Applicatie Starten**
 1. Open de movie applicatie in je development omgeving
