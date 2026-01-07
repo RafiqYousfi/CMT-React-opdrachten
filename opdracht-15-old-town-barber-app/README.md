@@ -30,9 +30,9 @@ Een eenvoudig barbier booking systeem met:
    - localStorage: `userProfile` object
 
 2. **Shop Info Sectie**
-   - Vaste shop informatie (naam, openingstijden)
-   - Services lijst met prijzen en duur
-   - Mooi geformateerd overzicht
+   - Vaste shop informatie (naam, openingstijden) 
+   - Services lijst met prijzen en duur 
+   - Mooi geformateerd overzicht 
 
 3. **Afspraak Boeken**
    - Formulier prefilled met user data
