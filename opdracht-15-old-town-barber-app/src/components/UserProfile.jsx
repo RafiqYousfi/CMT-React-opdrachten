@@ -1,5 +1,6 @@
 import { useState } from "react";
- 
+import {toast} from 'react-toastify'; 
+
 const UserProfile = ({ onSave }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -7,6 +8,11 @@ const UserProfile = ({ onSave }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if(!name.trim() || !email.trim() || !phone.trim()){
+        toast.error("Vul alle velden in!");
+        return;
+      }
 
     if (!name || !email || !phone) {
         alert("Vul alle velden in!");
@@ -33,6 +39,12 @@ const UserProfile = ({ onSave }) => {
         placeholder="Telefoon"
         value={phone}
         onChange={(e) => setPhone(e.target.value)}
+      />
+          <input
+        type="text"
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
       />
       <button type="submit">Opslaan</button>
     </form>
